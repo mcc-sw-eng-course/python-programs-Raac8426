@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4b238413-974a-45f2-8e82-b5975c125d24</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>L6\CSVFileSort_test.py</StartupFile>
+    <StartupFile>L6\FileSort_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -31,8 +31,8 @@
     <Compile Include="L4\TestP8.py" />
     <Compile Include="L4\TestP9.py" />
     <Compile Include="L4\TestmyPowerList.py" />
-    <Compile Include="L6\CSVFileSort_test.py" />
-    <Compile Include="L6\CSVFileSort.py">
+    <Compile Include="L6\FileSort_test.py" />
+    <Compile Include="L6\FileSort.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

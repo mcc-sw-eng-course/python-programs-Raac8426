@@ -1,10 +1,16 @@
 from pathlib import Path
+import datetime
 
-class CSVFileSort(object):
+class FileSort(object):
     def __init__(self):
         self.readPath=""
         self.writePath=""
-    def qSort(self,list):
+        self.list=[]
+        self.seconds=0.0
+        self.sortedElememts=0
+        self.startTime=datetime.datetime.now()
+        self.endTime=datetime.datetime.now()
+    def quickSort(self,list):
         if(len(list)>1):
             upper, lower,same=[],[],[]
             pivot=list[int(len(list)/2)]
@@ -16,7 +22,7 @@ class CSVFileSort(object):
                     lower.append(item)
                 else: 
                     same.append(item)
-            return self.qSort(lower)+same+self.qSort(upper)
+            return self.quickSort(lower)+same+self.quickSort(upper)
         return list
 
     def mergeSort(self,list): 
@@ -43,7 +49,8 @@ class CSVFileSort(object):
             return toReturn
         return list
 
-    def heapSort(self, aList ):
+    def heapSort(self, list ):
+        aList=list.copy()
         length = len( aList ) - 1
         leastParent = length // 2
         for i in range ( leastParent, -1, -1 ):
@@ -53,6 +60,7 @@ class CSVFileSort(object):
             if aList[0] > aList[i]:
                 self.swap( aList, 0, i )
                 self.moveDown( aList, 0, i - 1 )
+        return aList
      
     def moveDown(self, aList, first, last ):
         largest = 2 * first + 1
@@ -80,10 +88,64 @@ class CSVFileSort(object):
         except:
             raise ValueError("could not open file")
 
-    def set_output_data(self,file_path_name):        file = Path(file_path_name)
-        if file.is_file():            raise ValueError("file already exists")        try:
+
+    def set_output_data(self,file_path_name):
+        file = Path(file_path_name)
+        if file.is_file():
+            raise ValueError("file already exists")
+        try:
             file=open(file_path_name,"x")
             file.close()
             self.writePath=file_path_name
         except:
             raise ValueError("could not create file")
+
+    def writeListToFile(self):
+        if (self.writePath==""):
+            raise RuntimeError("file not set")
+        file=open(self.writePath,"w")
+        strNum=""
+        for number in self.list:
+            file.write(str(number)+"\n")
+        file.close()
+
+    def readListFromFile(self):
+        if (self.readPath==""):
+            raise RuntimeError("file not set")
+        file=open(self.readPath,"r")
+        lines=file.readlines()
+        self.list=[]
+        for line in lines:
+           self.list.append(float(line.replace("\n","")))
+        file.close()
+
+    def execute_quick_sort(self):
+        self.execute_sort("qSort")
+
+    def execute_merge_sort(self):
+        self.execute_sort("mSort")
+
+    def execute_heap_sort(self):
+        self.execute_sort("hSort")
+
+    def execute_sort(self,method):
+        if(self.readPath==""):
+            raise RuntimeError("source file is not set")
+        if(self.writePath==""):
+            raise RuntimeError("destination file is not set")
+        self.startTime=datetime.datetime.now()
+        self.readListFromFile()
+
+        if(method=="qSort"):
+            self.list=self.quickSort(self.list)
+        if(method=="mSort"):
+            self.list=self.mergeSort(self.list)
+        if(method=="hSort"):
+            self.list=self.heapSort(self.list)
+
+        self.writeListToFile()
+        self.endTime=datetime.datetime.now()
+        self.seconds=(self.endTime-self.startTime).total_seconds()
+        self.sortedElememts=len(self.list)
+
+    def get_performance_data(self):        if(self.seconds==0.0):            raise RuntimeError("sort not executed")        return {"time":self.seconds,"sortedElememts": self.sortedElememts,"starTime":self.startTime,"endTime":self.endTime}

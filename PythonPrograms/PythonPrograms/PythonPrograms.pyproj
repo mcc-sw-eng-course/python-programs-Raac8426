@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4b238413-974a-45f2-8e82-b5975c125d24</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>L6\FileSort_test.py</StartupFile>
+    <StartupFile>L8\Board_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,6 +23,7 @@
   <ItemGroup>
     <Folder Include="L4\" />
     <Folder Include="L6\" />
+    <Folder Include="L8\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="L4\p8.py" />
@@ -35,6 +36,10 @@
     <Compile Include="L6\FileSort.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="L8\Board.py" />
+    <Compile Include="L8\TicTacToe.py" />
+    <Compile Include="L8\Board_test.py" />
+    <Compile Include="L8\TicTacToe_test.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

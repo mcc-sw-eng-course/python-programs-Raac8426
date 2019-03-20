@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4b238413-974a-45f2-8e82-b5975c125d24</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>L8\Board_test.py</StartupFile>
+    <StartupFile>L8\TicTacToe.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -37,8 +37,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="L8\Board.py" />
+    <Compile Include="L8\Bot.py" />
     <Compile Include="L8\TicTacToe.py" />
     <Compile Include="L8\Board_test.py" />
+    <Compile Include="L8\Bot_test.py" />
     <Compile Include="L8\TicTacToe_test.py" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />

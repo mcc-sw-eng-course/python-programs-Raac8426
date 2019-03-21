@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>4b238413-974a-45f2-8e82-b5975c125d24</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>L8\TicTacToe.py</StartupFile>
+    <StartupFile>L8\Bot_test.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

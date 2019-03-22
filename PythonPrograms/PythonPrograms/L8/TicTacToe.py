@@ -26,7 +26,7 @@ class TicTacToe(object):
         self.board.doMovement(player,position)
         
     def botTurn(self,player):
-        bot= Bot.Bot()
+        bot= Bot.Bot(player)
         return bot.bestMovement(player,self.board)
 
     def humanTurn(self,player):
@@ -41,6 +41,6 @@ class TicTacToe(object):
         print(self.map[board[3]]+"|"+self.map[board[4]]+"|"+self.map[board[5]])
         print("-----")
         print(self.map[board[6]]+"|"+self.map[board[7]]+"|"+self.map[board[8]])
-
+        print("")
 TicTacToe1 = TicTacToe()
-TicTacToe1.play(True,True,True)
+TicTacToe1.play(True,False,False)
